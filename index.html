@@ -1,1 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+  />
+  <title>Batman Training</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/static/style.css?v=0.3.103" />
+</head>
+
+<body class="login-page">
+
+  <!-- BACKGROUND -->
+  <canvas id="stars-canvas"></canvas>
+
+  <!-- =====================
+       LOGIN SHELL
+  ====================== -->
+  <div class="login-shell">
+
+    <!-- HEADER -->
+    <header class="login-header">
+      <h1 class="login-title">BATMAN TRAINING</h1>
+      <p class="login-subtitle">Bienvenue dans la Batcave</p>
+    </header>
+
+    <!-- LISTE DES PROFILS -->
+    <main class="user-list-wrap">
+      <div class="profiles" id="users-list">
+        <!-- Profils injectés par app.js -->
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="login-footer">
+      <div class="profiles-actions">
+        <button id="create-profile-btn" type="button">
+          Créer un profil
+        </button>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- =====================
+       MODALE LOGIN
+  ====================== -->
+  <div id="modal-overlay" class="hidden">
+    <div class="modal">
+      <h2 id="modal-title">Profil</h2>
+
+      <form id="login-form" autocomplete="off">
+        <input
+          id="password"
+          type="password"
+          placeholder="Mot de passe"
+          required
+        />
+
+        <div class="modal-actions">
+          <button id="login-btn" type="submit">
+            Connexion
+          </button>
+          <button id="view-btn" type="button">
+            Voir le profil
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- =====================
+       MODALE PROFIL (LECTURE)
+  ====================== -->
+  <div id="profile-overlay" class="hidden">
+    <div class="modal profile-modal">
+
+      <!-- HEADER FIXE -->
+      <div class="profile-fixed-top">
+        <div class="profile-header">
+          <h2 id="profile-name" class="profile-name-title">—</h2>
+          <div id="profile-tier" class="profile-tier-pill">—</div>
+        </div>
+
+        <div class="profile-stats-grid">
+          <div class="profile-stat-card">
+            <div class="profile-stat-label">Score</div>
+            <div id="profile-score" class="profile-stat-value">—</div>
+          </div>
+
+          <div class="profile-stat-card">
+            <div class="profile-stat-label">Volume total</div>
+            <div id="profile-volume" class="profile-stat-value">—</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTENU CENTRAL -->
+      <div class="profile-mid">
+
+        <!-- MAX PERFORMANCES -->
+        <div class="profile-box">
+          <div class="profile-box-title">
+            Performances maximales
+          </div>
+          <div
+            id="profile-max-list"
+            class="profile-box-body"
+          ></div>
+        </div>
+
+        <!-- HISTORIQUE -->
+        <div class="profile-box">
+          <div class="profile-box-title">
+            Historique
+          </div>
+          <div
+            id="profile-history"
+            class="profile-box-body"
+          ></div>
+        </div>
+
+      </div>
+
+      <!-- FOOTER -->
+      <div class="profile-fixed-bottom">
+        <button
+          id="profile-close"
+          type="button"
+          class="profile-close-btn"
+        >
+          Fermer
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================
+       MODALE CREATION PROFIL
+  ====================== -->
+  <div id="create-overlay" class="hidden">
+    <div class="modal">
+
+      <h2>Créer un profil</h2>
+
+      <input
+        id="new-username"
+        type="text"
+        placeholder="Pseudo"
+      />
+
+      <!-- SEXE -->
+      <div class="gender">
+        <label class="gender-option">
+          <input
+            type="radio"
+            name="gender"
+            value="homme"
+            checked
+          />
+          <span>Homme</span>
+        </label>
+
+        <label class="gender-option">
+          <input
+            type="radio"
+            name="gender"
+            value="femme"
+          />
+          <span>Femme</span>
+        </label>
+      </div>
+
+      <input
+        id="new-age"
+        type="number"
+        placeholder="Âge"
+        min="10"
+      />
+
+      <input
+        id="new-height"
+        type="number"
+        placeholder="Taille (cm)"
+        min="100"
+      />
+
+      <!-- MOT DE PASSE -->
+      <div class="password-field">
+        <input
+          id="new-password"
+          type="password"
+          placeholder="Mot de passe"
+        />
+        <button
+          id="toggle-password"
+          type="button"
+          class="eye-btn"
+        >
+          Afficher
+        </button>
+      </div>
+
+      <input
+        id="confirm-password"
+        type="password"
+        placeholder="Confirmer le mot de passe"
+      />
+
+      <div class="modal-actions">
+        <button
+          id="validate-create-btn"
+          type="button"
+        >
+          Créer
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================
+       TOAST
+  ====================== -->
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- VERSION -->
+  <div id="site-version">
+    Gotham Training — v0.3.103
+  </div>
+
+  <!-- =====================
+       JS
+  ====================== -->
+  <script src="/static/app.js?v=0.3.103" defer></script>
+  <script src="/static/profile.js?v=0.3.103" defer></script>
+
+</body>
+</html>
 
